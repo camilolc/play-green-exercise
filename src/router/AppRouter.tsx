@@ -1,13 +1,15 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { SportRoutes } from '../sports/routes/SportRoutes';
 import { AuthRoutes } from '../auth/routes/AuthRoutes';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 
 
 export const AppRouter = () => {
 
-    const status = "authenticated";
-
+    const {status} = useSelector((status:RootState)=> status.auth)
+    
   return (
     <Routes>
         
