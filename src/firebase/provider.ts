@@ -14,7 +14,7 @@ export const loginWithEmailPassword = async({ email, password }:Props) => {
 
         return {
             ok: true,
-            uid, photoURL, displayName
+            uid, photoURL, displayName,email
         }
 
     } catch (error:any) {
