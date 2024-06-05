@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { RootState } from '../../store/store'
 import { startLogout } from '../../store/auth/thunks';
 
 

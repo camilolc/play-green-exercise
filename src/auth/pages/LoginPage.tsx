@@ -17,8 +17,6 @@ export const LoginPage = () => {
     password: ''
   });
 
-  console.log({status})
-
   const isAuthenticating = useMemo( () => status === 'checking', [status]);
 
   const onSubmit = ( event:any ) => {
