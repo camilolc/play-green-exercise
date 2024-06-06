@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from './auth/authSlice'
+import { sportSlice } from './sports/sportSlice'
+import { userSports } from './userSports/userSportsSlice'
 
 export const store = configureStore({
   reducer: {
-    auth:authSlice.reducer
+    auth:authSlice.reducer,
+    sports:sportSlice.reducer,
+    userSports:userSports.reducer
   },
 })
 

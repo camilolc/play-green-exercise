@@ -4,3 +4,21 @@ export interface AuthUser{
     email: null | string,
     errorMessage: null | string,
 }
+
+export interface Sport {
+    idSport:             string;
+    strSport:            string;
+    strFormat:           string;
+    strSportThumb:       string;
+    strSportThumbBW:     string;
+    strSportIconGreen:   string;
+    strSportDescription: string;
+}
+
+export interface SportUser{
+    id:string
+    title: string
+    urlImg: string
+    idSport:string
+    status: boolean
+}
