@@ -1,20 +1,35 @@
-import { useDispatch } from 'react-redux'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { startLogout } from '../../store/auth/thunks';
+import { Routes, Route, Navigate, Link } from 'react-router-dom'
+
+import { SportList } from '../components/SportList';
+import { UserSports } from '../components/UserSportList';
 
 
 export const SportRoutes = () => {
 
-    const dispatch:any = useDispatch();
-
-    const onLogOut =()=>{
-        dispatch(startLogout());
-    }
     return (
-        <Routes>
-            <Route path="/" element={ <><h1>logged</h1> <button onClick={onLogOut}>lot out</button></> } />    
-            <Route path="/*" element={ <Navigate to="/" /> } />
-        </Routes>
-      )
+        <>
+
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/historical">historical</Link>
+                    </li>
+                    <li>
+                        <Link to="">log out</Link>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <Routes>
+                <Route path="/" element={<SportList />} />
+                <Route path="/historical" element={<UserSports />} />
+                <Route path="/*" element={<Navigate to="/" />} />
+            </Routes>
+        </>
+    )
 }
 
