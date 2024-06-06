@@ -1,61 +1,71 @@
-import { Alert, Button, Grid, TextField } from "@mui/material"
-import { AuthLayout } from "../layout/AuthLayout"
+import { Alert, CssBaseline, Grid, Link, ThemeProvider, Typography, createTheme } from "@mui/material"
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { RootState } from "../../store/store";
+import { PageWrapper, LoginContainer, FormContainer, CustomTextField, LoginButton,darkTheme,lightTheme } from "../../styles/LoginStyles";
 
 export const LoginPage = () => {
 
 
-  const { status, errorMessage } = useSelector((state:RootState)=> state.auth)
 
-  const dispatch:any = useDispatch();
+  const { status, errorMessage } = useSelector((state: RootState) => state.auth)
+
+  const dispatch: any = useDispatch();
   const { email, password, onInputChange } = useForm({
     email: '',
     password: ''
   });
 
-  const isAuthenticating = useMemo( () => status === 'checking', [status]);
+  const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
-  const onSubmit = ( event:any ) => {
+  const onSubmit = (event: any) => {
     event.preventDefault();
 
-    dispatch( startLoginWithEmailPassword({ email, password }) );
-  }
+    dispatch(startLoginWithEmailPassword({ email, password }));
+  }  
+  
+  return (
 
-  
-  return (   
-      <AuthLayout title="Login">
-        <form onSubmit={ onSubmit }>
-            <Grid container>
-              <Grid item xs={ 12 } sx={{ mt: 2 }}>
-                <TextField 
-                  label="Correo" 
-                  type="email" 
-                  placeholder='correo@google.com' 
-                  fullWidth
-                  name="email"
-                  value={ email }
-                  onChange={ onInputChange }
-                />
-              </Grid>
-  
-              <Grid item xs={ 12 } sx={{ mt: 2 }}>
-                <TextField 
-                  label="Contraseña" 
-                  type="password" 
-                  placeholder='Contraseña' 
-                  fullWidth
-                  name="password"
-                  value={ password }
-                  onChange={ onInputChange }
-                />
-              </Grid>
-  
-  
-              <Grid 
+    <PageWrapper>
+         
+        <LoginContainer>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Welcome
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </Typography>
+          <form onSubmit={ onSubmit }>
+            <FormContainer>
+            <CustomTextField
+              label="User"
+              variant="filled"
+              fullWidth
+              name="email"
+              value={ email }
+              onChange={ onInputChange }
+            />
+            <CustomTextField
+              label="Password"
+              type="password"
+              variant="filled"
+              fullWidth
+              name="password"
+              value={password}
+              onChange={onInputChange}
+
+            />            
+            
+            <Link href="#" variant="body2" sx={{ color: '#cccccc', display: 'block', marginBottom: '1.5em' }}>
+              Forgot your password?
+            </Link>
+
+            <LoginButton variant="contained" type="submit" disabled={ isAuthenticating }>
+              Login
+            </LoginButton>
+            <Grid 
                 container
                 display={ !!errorMessage ? '': 'none' }
                 sx={{ mt: 1 }}>
@@ -66,25 +76,13 @@ export const LoginPage = () => {
                   <Alert severity='error'>{ errorMessage }</Alert>
                 </Grid>
               </Grid>
-              
-              <Grid container spacing={ 2 } sx={{ mb: 2, mt: 1 }}>
-                <Grid item xs={ 12 } sm={ 6 }>
-                  <Button
-                    disabled={ isAuthenticating }
-                    type="submit" 
-                    variant='contained' 
-                    fullWidth>
-                    Login
-                  </Button>
-                </Grid>              
-              </Grid>           
-  
-            </Grid>
-  
-  
+            </FormContainer>
           </form>
-  
-      </AuthLayout>
-    )
-  
+        </LoginContainer>
+
+      </PageWrapper>      
+     
+      
+  )
+
 }
