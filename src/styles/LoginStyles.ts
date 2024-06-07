@@ -8,8 +8,8 @@ export const darkTheme = {
       main: '#1e90ff',
     },
     background: {
-      default: '#1a1a2e',
-      paper: '#1f1f30',
+      default: '#181828',
+      paper: '#181828',
     },
     text: {
       primary: '#181828',

@@ -14,7 +14,7 @@ export const App = () => {
   return (
     <ThemeProvider theme={appTheme}>
     <CssBaseline />
-      <button onClick={toggleTheme}>cambiar tema</button>
+      <button style={{position:'absolute'}} onClick={toggleTheme}>cambiar tema</button>
     <AppRouter>
       
     </AppRouter>
