@@ -7,6 +7,7 @@ export const Container = styled(Card)`
   color: white;
   /* height: 100vh;  */
   width: 100%;
+  height:80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +25,7 @@ position:relative;
   height: 65vh;
   background-size: cover;
   background-position: center;
-  margin-bottom: 47px;
+  margin-bottom: 10%;
   border-radius: 0px 0px 32px 32px;
 `;
 
@@ -64,6 +65,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom:8vh;
 `;
 
 export const FavoriteButton = styled(IconButton)`

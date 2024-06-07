@@ -1,10 +1,10 @@
-import { Alert, CssBaseline, Grid, Link, ThemeProvider, Typography, createTheme } from "@mui/material"
+import { Alert, Grid, Link, Typography } from "@mui/material"
 import { startLoginWithEmailPassword } from "../../store/auth/thunks";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "../../hooks/useForm";
 import { RootState } from "../../store/store";
-import { PageWrapper, LoginContainer, FormContainer, CustomTextField, LoginButton,darkTheme,lightTheme } from "../../styles/LoginStyles";
+import { PageWrapper, LoginContainer, FormContainer, CustomTextField, LoginButton } from "../../styles/LoginStyles";
 
 export const LoginPage = () => {
 

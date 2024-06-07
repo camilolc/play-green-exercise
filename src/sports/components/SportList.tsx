@@ -90,7 +90,7 @@ export const SportList = () => {
             </FavoriteCircleContainer>
           </FavoriteButton>
         </ButtonsContainer>
-      </Container>   S
+      </Container>
     </>
   )
 }

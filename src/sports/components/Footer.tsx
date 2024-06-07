@@ -30,7 +30,7 @@ export const Footer = () => {
   display:flex;
   align-items:center;
   justify-content:space-around;
-  height:85px;  
+  height:8vh;  
   width:90%;
 `;
 
