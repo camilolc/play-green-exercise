@@ -72,36 +72,6 @@ export const SportList = () => {
 
   return (
     <>
-      {/* {result.map((sport: Sport) =>
-                <ul key={sport.idSport}>
-                    <li>{sport.strSport}</li>
-                    <img src={sport.strSportThumb} />
-                    <div>
-                        <button onClick={() => addNewSport(sport, true)}>like</button>
-                        <button onClick={() => addNewSport(sport, false)}>dislike</button>
-                    </div>
-                </ul>
-
-            )} */}
-      {/* {result.map(item => (
-            <Container key={item.idSport}>
-
-
-                <ImageContainer style={{ backgroundImage: `url(${item.strSportThumb})` }} />
-                <Typography variant="h5" component="div">
-                    Soccer
-                </Typography>
-                <ButtonsContainer>
-                    <CloseButton>
-                        <CloseTwoTone />
-                    </CloseButton>
-                    <FavoriteButton>
-                        <Favorite />
-                    </FavoriteButton>
-                </ButtonsContainer>
-            </Container>
-                ))} */}
-
       <Container>
         <ImageContainer style={{ backgroundImage: `url(${currentItem?.strSportThumb})` }}>
           <TitleOverlay variant="h5">
@@ -110,12 +80,12 @@ export const SportList = () => {
         </ImageContainer>
         <ButtonsContainer>
           <CloseButton onClick={handleDislike}>
-            <CircleContainer>
+            <CircleContainer onClick={()=>addNewSport(currentItem, false)}>
               <CloseTwoTone color="error" />
             </CircleContainer>
           </CloseButton>
           <FavoriteButton onClick={handleLike}>
-            <FavoriteCircleContainer>
+            <FavoriteCircleContainer onClick={()=>addNewSport(currentItem, true)}>
               <Favorite color="error" fontSize="large" />
             </FavoriteCircleContainer>
           </FavoriteButton>
