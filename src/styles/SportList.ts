@@ -30,7 +30,7 @@ position:relative;
 `;
 
 export const TitleOverlay = styled(Typography)`
-   position: absolute;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -43,12 +43,13 @@ export const TitleOverlay = styled(Typography)`
 
 export const CircleContainer = styled(Avatar)`
   background-color: blue;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%; 
+  margin-bottom:15px;
 `;
 
 export const FavoriteCircleContainer = styled(Avatar)`
@@ -66,6 +67,7 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   width: 100%;
   margin-bottom:8vh;
+  padding:0;
 `;
 
 export const FavoriteButton = styled(IconButton)`

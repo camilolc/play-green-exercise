@@ -4,8 +4,10 @@ import { Sport, SportUser } from "../../interfaces/interfaces"
 import { getAllSports } from "../../store/sports/thunks";
 import { useEffect, useState } from "react";
 import { startLoadingUserSports, startNewSport, startUpdateSport } from "../../store/userSports/thunks";
-import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, FavoriteCircleContainer, ImageContainer,TitleOverlay } from "../../styles/SportList";
-import { CloseTwoTone, Favorite } from '@mui/icons-material';
+import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, ImageContainer,TitleOverlay } from "../../styles/SportList";
+import { CloseTwoTone } from '@mui/icons-material';
+
+import LikeButton from '../../../public/likeButton.png'
 
 export const SportList = () => {
 
@@ -18,15 +20,10 @@ export const SportList = () => {
 
   const handleLike = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % result.length);
-  };
 
-  const handleDislike = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % result.length);
   };
 
   const currentItem = result[currentIndex];
-
-  console.log({ currentItem })
 
   const showSports = () => {
     dispatch(getAllSports())
@@ -60,6 +57,7 @@ export const SportList = () => {
         status
       }))
     }
+    handleLike();
 
   }
 
@@ -79,15 +77,13 @@ export const SportList = () => {
           </TitleOverlay>
         </ImageContainer>
         <ButtonsContainer>
-          <CloseButton onClick={handleDislike}>
-            <CircleContainer onClick={()=>addNewSport(currentItem, false)}>
+          <CloseButton onClick={()=>addNewSport(currentItem, false)}>
+            <CircleContainer >
               <CloseTwoTone color="error" />
             </CircleContainer>
           </CloseButton>
-          <FavoriteButton onClick={handleLike}>
-            <FavoriteCircleContainer onClick={()=>addNewSport(currentItem, true)}>
-              <Favorite color="error" fontSize="large" />
-            </FavoriteCircleContainer>
+          <FavoriteButton onClick={()=>addNewSport(currentItem, true)}>
+            <img src={LikeButton}></img>
           </FavoriteButton>
         </ButtonsContainer>
       </Container>
