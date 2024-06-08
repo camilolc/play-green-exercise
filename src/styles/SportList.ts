@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Avatar, IconButton, Typography, keyframes } from "@mui/material";
+import { Avatar, Box, IconButton, Typography, keyframes } from "@mui/material";
 
 
 export const Container = styled.div`
@@ -38,11 +38,9 @@ position:relative;
   margin-bottom: 5%;
   border-radius: 0px 0px 32px 32px;
   animation: ${fadeIn} 0.4s ease-in-out;
-
-
-
    @media (min-width: 600px) {
-    width:70%
+    width:70%;
+    border-radius:32px;
   }
 `;
 
@@ -66,6 +64,13 @@ export const CircleContainer = styled(Avatar)`
   justify-content: center;
   border-radius: 50%; 
   margin-bottom:15px;
+`;
+
+export const Loader = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
 `;
 
 export const FavoriteCircleContainer = styled(Avatar)`

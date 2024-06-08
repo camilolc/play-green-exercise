@@ -19,6 +19,9 @@ export const sportSlice = createSlice({
       state.isLoading = false;
       state.result = action.payload.result;
     },
+    endLoadingSearch: (state /* action */) => {
+      state.isLoading = false;
+    }
   },
 });
-export const { startLoadingSearch, setResults } = sportSlice.actions;
+export const { startLoadingSearch, setResults,endLoadingSearch } = sportSlice.actions;

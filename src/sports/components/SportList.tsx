@@ -4,11 +4,11 @@ import { Sport, SportUser } from "../../interfaces/interfaces"
 import { getAllSports } from "../../store/sports/thunks";
 import { useEffect, useState } from "react";
 import { startLoadingUserSports, startNewSport, startUpdateSport } from "../../store/userSports/thunks";
-import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, ImageContainer,TitleOverlay } from "../../styles/SportList";
+import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, ImageContainer,Loader,TitleOverlay } from "../../styles/SportList";
 import { CloseTwoTone } from '@mui/icons-material';
 
 import LikeButton from '../../../public/likeButton.png'
-import { useTheme } from "@mui/material"
+import {CircularProgress, useTheme } from "@mui/material"
 
 
 
@@ -18,8 +18,9 @@ export const SportList = () => {
 
 
   const dispatch: any = useDispatch();
-  const { result } = useSelector((state: RootState) => state.sports)
+  const { result,isLoading } = useSelector((state: RootState) => state.sports)
   const { sports } = useSelector((state: RootState) => state.userSports)
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); 
@@ -77,6 +78,12 @@ export const SportList = () => {
 
   return (
     <>
+    {isLoading
+      ?
+      <Loader>
+      <CircularProgress />
+      </Loader>
+      :
       <Container>
         <ImageContainer key={animationKey} style={{ backgroundImage: `url(${currentItem?.strSportThumb})` }}>
           <TitleOverlay variant="h5">
@@ -94,6 +101,7 @@ export const SportList = () => {
           </FavoriteButton>
         </ButtonsContainer>
       </Container>
+    }
     </>
   )
 }

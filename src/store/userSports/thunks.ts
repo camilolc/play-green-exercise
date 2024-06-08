@@ -44,7 +44,6 @@ export const startUpdateSport = (sport:SportUser) => {
 
         const { uid } = getState().auth;
         const sportToUpdate = sport      
-        console.log({sport})
             
         const docRef = doc( FirebaseDB, `${ uid }/card/cards/${ sport.id }` );
         await setDoc( docRef, sportToUpdate, { merge: true });
