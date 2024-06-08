@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
-import { Avatar, Card, IconButton, Typography } from "@mui/material";
+import { Avatar, IconButton, Typography, keyframes } from "@mui/material";
 
 
-export const Container = styled(Card)`
+export const Container = styled.div`
 /* background-color: #1a1a1a; */
   color: white;
   /* height: 100vh;  */
   width: 100%;
-  height:80%;
+  /* height:80%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,14 +19,31 @@ export const Container = styled(Card)`
   } */
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 export const ImageContainer = styled.div`
 position:relative;
  width: 100%;
   height: 65vh;
   background-size: cover;
   background-position: center;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   border-radius: 0px 0px 32px 32px;
+  animation: ${fadeIn} 0.4s ease-in-out;
+
+
+
+   @media (min-width: 600px) {
+    width:70%
+  }
 `;
 
 export const TitleOverlay = styled(Typography)`
@@ -42,7 +59,6 @@ export const TitleOverlay = styled(Typography)`
   `;
 
 export const CircleContainer = styled(Avatar)`
-  background-color: blue;
   width: 50px;
   height: 50px;
   display: flex;

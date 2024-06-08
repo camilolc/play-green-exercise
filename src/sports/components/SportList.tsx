@@ -8,8 +8,13 @@ import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButt
 import { CloseTwoTone } from '@mui/icons-material';
 
 import LikeButton from '../../../public/likeButton.png'
+import { useTheme } from "@mui/material"
+
+
 
 export const SportList = () => {
+
+  const theme = useTheme();
 
 
   const dispatch: any = useDispatch();
@@ -17,9 +22,11 @@ export const SportList = () => {
   const { sports } = useSelector((state: RootState) => state.userSports)
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0); 
 
   const handleLike = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % result.length);
+    setAnimationKey((prevKey) => prevKey + 1);
 
   };
 
@@ -71,15 +78,15 @@ export const SportList = () => {
   return (
     <>
       <Container>
-        <ImageContainer style={{ backgroundImage: `url(${currentItem?.strSportThumb})` }}>
+        <ImageContainer key={animationKey} style={{ backgroundImage: `url(${currentItem?.strSportThumb})` }}>
           <TitleOverlay variant="h5">
             {currentItem ? currentItem?.strSport : ""}
           </TitleOverlay>
         </ImageContainer>
         <ButtonsContainer>
           <CloseButton onClick={()=>addNewSport(currentItem, false)}>
-            <CircleContainer >
-              <CloseTwoTone color="error" />
+            <CircleContainer sx={{background:theme.palette.primary.contrastText}} >
+              <CloseTwoTone style={{color:theme.palette.primary.dark}} />
             </CircleContainer>
           </CloseButton>
           <FavoriteButton onClick={()=>addNewSport(currentItem, true)}>

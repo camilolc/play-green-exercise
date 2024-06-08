@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
-import { Card, CardContent, Typography, IconButton } from '@mui/material';
+import { CardContent, Typography, IconButton, Card } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   /* background-color: #1a1a1a; */
-  color: white;
   /* min-height: 90vh; */
   padding:10px;
   width:100%;
   height:80vh;
   padding: 32px;
   overflow-y:scroll;
+  
 `;
 
 export const HistoryHeader = styled.div`
@@ -18,6 +19,7 @@ export const HistoryHeader = styled.div`
   align-items: flex-start;
   margin-bottom: 16px;
   margin-top:10px;
+
 `;
 
 export const Title = styled(Typography)`
@@ -27,7 +29,6 @@ export const Title = styled(Typography)`
 
 export const Subtitle = styled(Typography)`
   font-size: 18px;
-  color: #999;
   margin-bottom:8px;
 `;
 
@@ -35,13 +36,25 @@ export const CardItem = styled(Card)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #212135;
   color: white;
   margin-bottom: 14px;
   border-radius:12px;
+  width:100%;
+
+  @media (min-width: 600px) {
+    width:40%
+  }
+  
 `;
 
-export const CardImage = styled.div`
+export const CardItemContainer = styled.div`
+
+  @media (min-width: 600px) {
+    display:ruby-text
+  }
+`;
+
+export const CardImage = styled(Card)`
   position: relative;
   width: 80%;
   height: 80px;
@@ -73,5 +86,10 @@ export const FavoriteButton = styled(IconButton)`
 
 export const CloseButton = styled(IconButton)`
   color: white;
+`;
+
+export const LinkButton = styled(NavLink)`
+  text-decoration:none;
+  color:unset
 `;
 

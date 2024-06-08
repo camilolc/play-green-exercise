@@ -1,12 +1,25 @@
 import styled from '@emotion/styled';
 import { Home, History, Logout } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../../store/auth/thunks';
+import { Card, useTheme } from '@mui/material';
 
 
 
 export const Footer = () => {
+
+  const theme = useTheme();
+
+  const activeLinkStyle = {
+    color: theme.palette.text.disabled,
+    backgroundColor: theme.palette.primary.light, 
+  };
+
+  const inactiveLinkStyle = {
+    color: "#777777",   
+    
+  };
 
   const distpatch: any = useDispatch();
 
@@ -24,8 +37,7 @@ export const Footer = () => {
   width: 100%;  
 `;
 
-  const ButtonContainer = styled.div`
-  background-color:gray;
+  const ButtonContainer = styled(Card)`
   border-radius:24px;
   display:flex;
   align-items:center;
@@ -34,19 +46,34 @@ export const Footer = () => {
   width:90%;
 `;
 
-  const FooterButton = styled(Link)`
-  color: white;
+  const FooterButton = styled(NavLink)`
+   width: 59px;
+   height:59px;;
+   border-radius:16px;
+   display:flex;
+   flex-direction:row;
+   justify-content:center;
+   align-items:center ;
+   
 `;
   return (
     <Footer>
       <ButtonContainer>
-        <FooterButton to={"/"}>
+        <FooterButton
+          to={"/"}
+          style={({ isActive }) => isActive ? activeLinkStyle : inactiveLinkStyle}
+        >
           <Home />
         </FooterButton>
-        <FooterButton to="/historical">
+        <FooterButton to="/historical"
+          style={({ isActive }) => isActive ? activeLinkStyle : inactiveLinkStyle}
+        >
           <History />
         </FooterButton>
-        <FooterButton to={""} onClick={onLogout}>
+        <FooterButton 
+        to={""} 
+        style={inactiveLinkStyle}
+        onClick={onLogout}>
           <Logout />
         </FooterButton>
       </ButtonContainer>
