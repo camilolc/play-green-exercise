@@ -97,7 +97,8 @@ export const PageWrapper = styled(Box)({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '100vh',
+  height: '90vh',
+  overflow:'hidden'
 });
 
 export const TypographyBody = styled(Typography)({
@@ -107,14 +108,13 @@ export const TypographyBody = styled(Typography)({
 
 export const LoginContainer = styled(Container)({
   // backgroundColor: '#1f1f30',
-  padding: '40px 5px',
+  padding: '40px 5px 0px 5px',
   borderRadius: '15px',
   textAlign: 'center',
-  maxWidth: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  margin: 0
+  
 });
 
 
