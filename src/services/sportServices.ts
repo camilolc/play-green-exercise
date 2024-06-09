@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getAllSportsApi = async () => {
-    const url = 'https://dff6kz4nmb.execute-api.us-east-1.amazonaws.com/development/test-front';
+    const url = import.meta.env.VITE_GET_ALL_SPORTS;
     try {
         const response = await axios.get(url)
         const {data} = response;

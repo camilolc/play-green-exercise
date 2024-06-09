@@ -4,7 +4,7 @@ import { AuthUser } from '../../interfaces/interfaces';
 type OptionalPayloadAction<T> = PayloadAction<T | undefined>;
 
 const initialState:AuthUser ={
-    status: 'not-authenticated', // 'checking', 'not-authenticated', 'authenticated'
+    status: 'checking', // 'checking', 'not-authenticated', 'authenticated'
     uid: null as string | null,
     email: null as string | null,
     errorMessage: null as string | null,

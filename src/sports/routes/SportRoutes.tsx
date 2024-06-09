@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import { SportList } from '../components/SportList';
-import { UserSports } from '../components/UserSportList';
-import { Footer } from '../components/Footer';
+import { SportList } from '../pages/SportList';
+import { UserSports } from '../pages/UserSportList';
+import { Footer } from '../pages/Footer';
 
 
 export const SportRoutes = () => {    
