@@ -2,12 +2,13 @@
 
 ## Overview
 
-PlayGreen is a React application built using Vite and TypeScript. The application allows users to view images of various sports and either like or dislike them. Users can also view their history of likes and dislikes in the historic component. The project includes user authentication via Firebase, data storage in Firestore, and utilizes various libraries including Redux Toolkit, Styled Components, Material-UI (MUI), Axios, and Progressive Web App (PWA) functionality.
+PlayGreen is a React application built using Vite and TypeScript. The application allows users to log in, sign up, and view images of various sports and either like or dislike them. Users can also view their history of likes and dislikes in the historic component. The project includes user authentication via Firebase, data storage in Firestore, and utilizes various libraries including Redux Toolkit, Styled Components, Material-UI (MUI), Axios, and Progressive Web App (PWA) functionality.
 
 ## Features
 
 - User Authentication with Firebase
 - Firestore Integration for Data Storage
+- User sign up
 - Like/Dislike Functionality with History Tracking
 - Light and Dark Theme Support
 - Progressive Web App (PWA) basic setup
@@ -29,6 +30,15 @@ Before running the application, make sure you have the following installed on yo
     ```bash
     git clone https://github.com/camilolc/play-green-exercise.git
     cd play-green-exercise
+    ```
+
+## Firebase Authentication
+
+1. log in default user:
+
+    ```bash
+    email: playgreen@test.com
+    password: 123123
     ```
 
 ## Project Structure

@@ -12,26 +12,23 @@ import { useCheckAuth } from '../hooks/useCheckAuth';
 
 export const AppRouter = () => {
 
-
   const status = useCheckAuth();
 
-  if ( status === 'checking' ) {
+  if (status === 'checking') {
     return <></>
   }
 
-  
-
   return (
-    
-    <Routes>
-        
-        {
-          (status === 'authenticated')
-           ? <Route path="/*" element={ <SportRoutes /> } />
-           : <Route path="/auth/*" element={ <AuthRoutes /> } />
-        }
 
-        <Route path='*' element={ <Navigate to='/auth/login' />  } />      
+    <Routes>
+
+      {
+        (status === 'authenticated')
+          ? <Route path="/*" element={<SportRoutes />} />
+          : <Route path="/auth/*" element={<AuthRoutes />} />
+      }
+
+      <Route path='/*' element={<Navigate to='/auth/login' />} />
 
     </Routes>
   )
