@@ -1,5 +1,8 @@
-import { loginWithEmailPassword, logoutFirebase } from '../../firebase/provider';
-import { checkingCredentials, login, logout } from './authSlice';
+import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword } from '../../firebase/provider';
+import { UserProps } from '../../interfaces/interfaces';
+import { checkingCredentials, login, logout, resetErrorMessage } from './authSlice';
+
+
 
 export const checkingAuthentication = () => {
     return async( dispatch:any ) => {
@@ -23,12 +26,35 @@ export const startLoginWithEmailPassword = ({ email, password }:any) => {
     }
 }
 
+export const startCreatingUserWithEmailPassword = ({ email, password }:UserProps) => {
+    return async( dispatch:any ) => {
+
+        dispatch( checkingCredentials() );
+
+        const result = await registerUserWithEmailPassword({ email, password });
+        if ( !result.ok ) return dispatch( logout( result ) );
+
+        dispatch( login( result ))
+
+    }
+
+}
+
 export const startLogout = () => {
     return async( dispatch:any ) => {
         
         await logoutFirebase();
 
         dispatch( logout() );
+
+    }
+}
+
+export const startResetMessage = () => {
+    return async( dispatch:any ) => {
+        
+
+        dispatch( resetErrorMessage() );
 
     }
 }

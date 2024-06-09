@@ -1,5 +1,7 @@
 import { Box, Button, Container, TextField, Typography, styled } from "@mui/material";
 
+import {Link } from "@mui/material"
+
 
 export const darkTheme = {
   palette: {
@@ -24,7 +26,7 @@ export const darkTheme = {
   components: {
     MuiTextField: {
       defaultProps: {
-        sx: { backgroundColor: '#2F2F43' }
+        sx: { backgroundColor: '#2F2F43', }
       },
     },
     MuiInputLabel: {
@@ -117,11 +119,23 @@ export const LoginContainer = styled(Container)({
   
 });
 
+export const BottomContainer = styled(Container)({ 
+
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  
+});
+
 
 export const FormContainer = styled(Container)({
   width: '100%',
   textAlignLast: 'left',
 });
+
+export const CustomLink = styled(Link)`
+  width: '100%';
+`
 
 export const CustomTextField = styled(TextField)({
   // backgroundColor: '#2a2a3a',
@@ -129,15 +143,6 @@ export const CustomTextField = styled(TextField)({
   borderRadius: '18px',
   marginBottom: '1em',
   padding: "15px 16px",
-  '& .MuiInputBase-input': {
-    color: 'white',
-  },
-  '& .MuiInputLabel-root': {
-    color: 'white',
-    '&.Mui-focused': {
-      color: 'white',
-    },
-  },
 });
 
 export const TextLink = styled(Button)({
@@ -160,6 +165,8 @@ export const LoginButton = styled(Button)({
   marginTop: '1.5em',
   background: "linear-gradient(99deg, #236BFE 6.69%, #0D4ED3 80.95%)",
   boxShadow: "0px 4px 30px 0px #2269FBCC",
+
+  marginBottom:30,
 
   // color: 'white',
   fontSize: '1em',

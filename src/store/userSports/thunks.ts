@@ -4,7 +4,7 @@ import { FirebaseDB } from '../../firebase/config';
 
 
 import { addNewSport, savingNewSport, setSaving, setSports, updateSport } from './userSportsSlice';
-import { loadNotes } from '../../helpers/loadNotes';
+import { loadCards } from '../../helpers/loadCards';
 import { SportUser } from '../../interfaces/interfaces';
 
 export const startNewSport = (body:SportUser) => {
@@ -32,7 +32,7 @@ export const startLoadingUserSports = () => {
         const { uid } = getState().auth;
         if ( !uid ) throw new Error('The UID does not exist');
 
-        const notes = await loadNotes( uid );
+        const notes = await loadCards( uid );
         dispatch( setSports( notes ) );
     }
 }

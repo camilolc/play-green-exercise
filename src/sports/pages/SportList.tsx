@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../../store/store"
+import { AppDispatch, RootState } from "../../store/store"
 import { Sport, SportUser } from "../../interfaces/interfaces"
 import { getAllSports } from "../../store/sports/thunks";
 import { useEffect, useState } from "react";
 import { startLoadingUserSports, startNewSport, startUpdateSport } from "../../store/userSports/thunks";
-import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, ImageContainer,Loader,TitleOverlay } from "../../styles/SportList";
+import { ButtonsContainer, CircleContainer, CloseButton, Container, FavoriteButton, ImageContainer,Loader,TitleOverlay } from "../../styles/SportListStyles";
 import { CloseTwoTone } from '@mui/icons-material';
 
 import LikeButton from '../../../public/likeButton.png'
@@ -14,16 +14,20 @@ import {CircularProgress, useTheme } from "@mui/material"
 
 export const SportList = () => {
 
+
+  //#region hooks
   const theme = useTheme();
-
-
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const { result,isLoading } = useSelector((state: RootState) => state.sports)
   const { sports } = useSelector((state: RootState) => state.userSports)
 
+  //#endregion
+
+  //#region card visualization
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); 
+  const currentItem = result[currentIndex];
 
   const handleLike = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % result.length);
@@ -31,7 +35,9 @@ export const SportList = () => {
 
   };
 
-  const currentItem = result[currentIndex];
+  //#endregion
+
+  //#region dispatch actions
 
   const showSports = () => {
     dispatch(getAllSports())
@@ -74,6 +80,8 @@ export const SportList = () => {
     showSports();
     showUserSports();
   }, [])
+
+  //#endregion
 
 
   return (

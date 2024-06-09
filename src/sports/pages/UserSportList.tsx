@@ -11,12 +11,16 @@ import { useTheme } from "@mui/material";
 
 export const UserSports = () => {
 
+
+   //#region hooks
+
   const theme = useTheme();  
-
-
   const dispatch: any = useDispatch();
-
   const { sports } = useSelector((state: RootState) => state.userSports)
+
+  //#endregion
+
+  //#region dispatch action
 
   const showUserSports = () => {
     dispatch(startLoadingUserSports())
@@ -25,6 +29,12 @@ export const UserSports = () => {
   useEffect(() => {
     showUserSports();
   }, [])
+  
+  //#endregion
+
+
+
+
 
   return (
     <>
